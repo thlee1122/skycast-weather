@@ -37,7 +37,7 @@ module.exports = {
       applicationStyles: 'app/styles/app.css',
       Login: 'app/components/login.jsx',
       App: 'app/components/App.jsx',
-      SearchHistory: 'app/components/SearchLog.jsx'
+      // SearchHistory: 'app/components/SearchLog.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
