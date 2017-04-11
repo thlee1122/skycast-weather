@@ -1,0 +1,56 @@
+
+.page-title {
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+}
+
+input[type="search"] {
+	box-shadow: none;
+}
+
+/* Styling for About page */
+#about-page {
+	width: 700px;
+	margin-left: -150px;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+#about-page p, ul {
+	font-size: 20px;
+}
+
+#about-page ul li {
+	padding-bottom: 20px;
+}
+
+/*Styling for Example page */
+#example-page {
+	width: 700px;
+	margin-left: -150px;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+#example-page p, ol {
+	font-size: 20px;
+	margin-left: 100px;
+}
+
+#example-page ol li {
+	padding-bottom: 20px;
+}
+
+/*Styling for Login page */
+#login-page {
+	margin-top: 100px;
+	width: 700px;
+	margin-left: -150px;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+#login-page label {
+	font-size: 20px;
+}
+
+
+
+

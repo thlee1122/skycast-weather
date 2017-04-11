@@ -1,26 +1,56 @@
 var React = require('react');
 var Nav = require('Nav');
 
-// var Main = React.createClass({
-//   render: function () {
-//     return (
-//       <div>
-//         <Nav/>
-//         <h2>Main Component</h2>
-//         {this.props.children}
-//       </div>
-//     );
-//   }
-// });
+var Main = React.createClass({
+  //Set initial state for userName & hasLoggedIn
+  getInitialState: function () {
+    return {
+      userName: '',
+      hasLoggedIn: false
+    }
+  },
 
-var Main = (props) => {
+  //when a user type in the login Id in the login Id input box and press sign in button, it will trigger this handlesubmit function
+  //it will set the userName to inputted login Id and set the hasLoggedIn to true
+  handleSubmit: function (name) {
+    this.setState({
+      userName: name,
+      hasLoggedIn: true
+    })
+  },
+
+  //When a user click on the logout button in the nav bar, it will set the hasLoggedIn to 'false' and username to empty
+  logout: function () {
+    this.setState({
+      hasLoggedIn: false,
+      userName: ''
+    })
+  },
+
+  render: function() {
+    // it is a replacement for {this.props.children}; this renders all child elements of a component
+    // it adds the props of the parent element, when it renders the child component; each child component has the access to the state of the parent component
+    var childrenWithParentProps = React.Children.map(this.props.children, (child) => {
+      return React.cloneElement(child, {
+        userName: this.state.userName,
+        handleSubmit: this.handleSubmit
+      })
+    })
+
   	return (
+
   		<div>
-        	<Nav/>
-        	<h2>Main Component</h2>
-        	{props.children}
+        	<Nav hasLoggedIn={this.state.hasLoggedIn} logout={this.logout} />
+
+        	<div className="row">
+        		<div className="columns medium-6 large-4 small-centered">
+        			{childrenWithParentProps}
+        		</div>
+        	</div>
+        	
       	</div>
-  	)
-}
+  	) 
+  }
+})
 
 module.exports = Main;

@@ -1,11 +1,29 @@
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './app/app.jsx',
+  //configuration to use foundation (CSS) & jquery
+  entry: [
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/foundation.min.js',
+    './app/app.jsx'
+  ],
+  externals: {
+    jquery: 'jQuery'
+  },
+  plugins: [
+    //configuration to use jquery in the application
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    })
+  ],
   output: {
     path: __dirname,
     filename: './public/bundle.js'
   },
   resolve: {
     root: __dirname,
+    //Using alias for the component names; easier; no need to write file path
     alias: {
       Main: 'app/components/Main.jsx',
       Nav: 'app/components/Nav.jsx',
@@ -14,7 +32,11 @@ module.exports = {
       WeatherMessage: 'app/components/WeatherMessage.jsx',
       About: 'app/components/About.jsx',
       Examples: 'app/components/Examples.jsx',
-      openWeatherMap: 'app/api/openWeatherMap.jsx'
+      openWeatherMap: 'app/api/openWeatherMap.jsx',
+      ErrorModal: 'app/components/ErrorModal.jsx',
+      applicationStyles: 'app/styles/app.css',
+      Login: 'app/components/login.jsx',
+      App: 'app/components/App.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -29,5 +51,6 @@ module.exports = {
         exclude: /(node_modules|bower_components)/
       }
     ]
-  }
+  },
+  devtool: 'cheap-module-eval-source-map'
 };
