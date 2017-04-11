@@ -2,14 +2,18 @@ var React = require('react');
 var {Link, IndexLink} = require('react-router');
 
 var Nav = React.createClass({
+	//when the search button is clicked, it would trigger the onSearch function
+
 	onSearch: function(e) {
 		e.preventDefault();
 		
 		var location = this.refs.search.value;
+		//need to conver the inputting location to encoded
 		var encodedLocation = encodeURIComponent(location);
 
 		if(location.length > 0) {
 			this.refs.search.value = '';
+			//this would change the url of the app add location tag in there; it would then show corresponding weather info on the page
 			window.location.hash = '#/?location=' + encodedLocation;
 		}
 
@@ -45,6 +49,7 @@ var Nav = React.createClass({
 		  			</ul>
 		  		</div>
 
+		  	{/* Search functionality that is located in the top right of the navigation bar */}
 		  		<div className="top-bar-right">
 		  			<form onSubmit={this.onSearch}>
 		  				<ul className="menu">

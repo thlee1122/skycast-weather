@@ -51,6 +51,68 @@ input[type="search"] {
 	font-size: 20px;
 }
 
+/*Styling for weather message*/
+#weather-message {
+	width: 1100px;
+	margin-left: -350px;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+#weather-message h3 {
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+#weather-message .row {
+	padding-bottom: 30px;
+}
 
 
+/*Styling bargraph in weather message components */
+.bargraph {
+    list-style: none;
+    padding-top: 20px;
+    width: 1000px;
+}
+
+ul.bargraph li {
+    height: 35px;
+    color: white;
+    text-align: left;
+    font-style: italic;
+    font-weight:bolder;
+    font-size: 14px;
+    line-height: 35px;
+    padding: 0px 20px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+}
+
+ul.bargraph li.reddeep {
+background: #ED1C24;
+}
+ 
+ul.bargraph li.redpink {
+background: #EF465B;
+}
+ 
+ul.bargraph li.pink {
+background: #E55A6B;
+}
+ 
+ul.bargraph li.orangered {
+background: #E28159;
+}
+ 
+ul.bargraph li.orange {
+background: #F99C1C;
+}
+ 
+ul.bargraph li.yellow {
+background: #F4D41E;
+}
+ 
+ul.bargraph li.green {
+background: #97B546;
+}
 

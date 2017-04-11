@@ -13,6 +13,8 @@
     "axios": "^0.16.1",
     "body-parser": "^1.17.1",
     "express": "^4.13.4",
+    "foundation-sites": "^6.3.1",
+    "foundation-sites-loader": "^1.0.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0",

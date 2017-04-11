@@ -10,9 +10,6 @@ var Weather = React.createClass({
     getInitialState: function () {
       return {
         isLoading: false,
-        // location: undefined,
-        // lat: undefined,
-        // lng: undefined,
         city: undefined,
         neighborhood: undefined,
         errorMessage: undefined,
@@ -20,17 +17,12 @@ var Weather = React.createClass({
         temp: undefined,
         summary: undefined,
         forecast: undefined,
-
         location: undefined
       }
     },
 
-  //take address from user input to output lat, lng, and neighborhood info
+  //take location from user input to output lat, lng, city, neighborhood info using Google GeoCode API.
   geocodeCall: function(location) {
-    //need to somehow bring location information into here
-    // const address = this.state.location;
-    //*****************
-    // const address = req.body.address;
       axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyA9nh5crm_pn55Ryf_Tu6kbpvy4ywgrZVk`)
       .then((info) => {
         //store user location data returned from api call in res.locals
@@ -53,6 +45,7 @@ var Weather = React.createClass({
           neighborhood
         }
         })
+      //put the data into location variable aand pass it onto darkSky API
       .then((location) => {
         this.darkSkyCall(location)
       })
@@ -66,7 +59,6 @@ var Weather = React.createClass({
     axios.post('/api/darksky', location)
     .then((res => res.data))
     .then((weather) => {
-      //store data returned from api call in res.locals
       //round temp to get rid of decimals for UX
         var temp = Math.round(weather.currently.temperature);
         var summary = weather.currently.summary;
@@ -91,9 +83,6 @@ var Weather = React.createClass({
 
     this.setState({
       isLoading: true,
-      // errorMessage: undefined,
-      // setLocation: undefined,
-      // temp: undefined
     });
 
     this.geocodeCall(location)
@@ -131,7 +120,6 @@ var Weather = React.createClass({
       if (isLoading) {
         return <h3 className="text-center">Fetching weather...</h3>;
       } else if (temp) {
-        // return <h1>hello!!!</h1>;
         return <WeatherMessage temp={temp} summary={summary} forecast={forecast} city={city} neighborhood={neighborhood} location={location}/>;
       }
     }
