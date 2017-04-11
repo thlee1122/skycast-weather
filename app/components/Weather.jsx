@@ -133,7 +133,7 @@ var Weather = React.createClass({
     }
 
     return (
-      <div>
+      <div id="weather-page">
         <h1 className="text-center page-title">Get Weather</h1>
         {/* Get the username information display on the screen with welcome message*/}
         <h3 className="text-center page-title">Welcome to Skycast Weather {this.props.userName}</h3>

@@ -37,6 +37,10 @@ var Nav = React.createClass({
 		  					<Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
 		  				</li>
 
+		  				<li>
+		  					<Link to="/history" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Search History</Link>
+		  				</li>
+
 		  				{/* When hasLoggenIn property from the main.jxs is set to "false", it will show "login" button */}
 		  				{!this.props.hasLoggedIn && <li>
 		  						<Link to="/login" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Login</Link>

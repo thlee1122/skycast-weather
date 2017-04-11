@@ -6,6 +6,7 @@ var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
 var Login = require('Login');
+var SearchHistory = require('app/components/SearchLog.jsx');
 
 //Load foundation (Style loader, CSS loader)
 require('style!css!foundation-sites/dist/foundation.min.css')
@@ -20,6 +21,7 @@ ReactDOM.render(
     <Route path="/" component={Main}>
     	<Route path="about" component={About}/>
     	<Route path="examples" component={Examples}/>
+      <Route path="history" component={SearchHistory}/>
     	<Route path="login" component={Login}/>
       {/* Weather component is the main component (main page), which renders weatherForm & weatherMessage components */}
     	<Route path="Weather" component={Weather}/>
