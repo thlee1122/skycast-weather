@@ -6,7 +6,8 @@ var Main = React.createClass({
   getInitialState: function () {
     return {
       userName: '',
-      hasLoggedIn: false
+      hasLoggedIn: false,
+      historyLog: []
     }
   },
 
@@ -27,13 +28,24 @@ var Main = React.createClass({
     })
   },
 
+  updateHistoryLog: function(location) {
+    this.setState((prevState, props) => {
+      const historyLog = prevState.historyLog;
+      const time = new Date();
+      historyLog.push({location, time});
+      return { historyLog: historyLog }
+    })
+  }, 
+
   render: function() {
     // it is a replacement for {this.props.children}; this renders all child elements of a component
     // it adds the props of the parent element, when it renders the child component; each child component has the access to the state of the parent component
     var childrenWithParentProps = React.Children.map(this.props.children, (child) => {
       return React.cloneElement(child, {
         userName: this.state.userName,
-        handleSubmit: this.handleSubmit
+        historyLog: this.state.historyLog,
+        handleSubmit: this.handleSubmit,
+        updateHistoryLog: this.updateHistoryLog
       })
     })
 

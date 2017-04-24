@@ -7,11 +7,11 @@ var WeatherForm = React.createClass({
     e.preventDefault();
 
     var location = this.refs.location.value;
-    // this.props.handleLocation(location);
 
     if (location.length > 0) {
       this.refs.location.value = '';
       this.props.onSearch(location);
+      this.props.updateHistoryLog(location);
     }
   },
   render: function () {

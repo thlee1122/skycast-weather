@@ -63,8 +63,6 @@ var Weather = React.createClass({
         var temp = Math.round(weather.currently.temperature);
         var summary = weather.currently.summary;
         var forecast = weather.daily.data;
-
-        console.log(forecast);
         
         this.setState({
           temp: temp,
@@ -137,7 +135,7 @@ var Weather = React.createClass({
         <h1 className="text-center page-title">Get Weather</h1>
         {/* Get the username information display on the screen with welcome message*/}
         <h3 className="text-center page-title">Welcome to Skycast Weather {this.props.userName}</h3>
-        <WeatherForm onSearch={this.handleSearch} />
+        <WeatherForm onSearch={this.handleSearch} updateHistoryLog={this.props.updateHistoryLog}/>
         {renderMessage()}
         {renderError()}
       </div>

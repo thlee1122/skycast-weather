@@ -20,7 +20,6 @@ var Nav = React.createClass({
 	},
 
 	render: function() {
-		console.log('hasLoggedIn', this.props.hasLoggedIn)
 		return (
 		  	<div className="top-bar">
 		  		<div className="top-bar-left">
