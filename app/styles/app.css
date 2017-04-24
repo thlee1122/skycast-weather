@@ -124,12 +124,24 @@ ul.bargraph li.green {
 background: #97B546;
 }
 
-/* d3 Visualizations */
-#visualization {
-	border: 1px solid black;
+/* SearchLog page */
+#searchLog-page {
+    width: 700px;
+    margin-top: 100px;
+	margin-left: -150px;
+    font-family: "Lucida Console", Monaco, monospace;
 }
 
+#searchLog-page h1 {
+	text-align: center;
+	margin-top: -50px;
+	padding-bottom: 30px;
+}
 
+#searchLog-page ol li {
+	padding-bottom: 20px;
+	margin-left: -20px;
+}
 
 
 
